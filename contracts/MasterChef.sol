@@ -443,4 +443,8 @@ contract MasterChef is Ownable, ReentrancyGuard {
         emit ReferralBonusBpChanged(previousRefBonusBP, _newRefBonusBp);
     }
 
+    //Only update before start of farm
+    function updateStartBlock(uint256 _startBlock) public onlyOwner {
+        startBlock = _startBlock;
+    }
 }
